@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import WhatsAppButton from "./WhatsappButton";
 import { assets } from "../assets/assets";
 

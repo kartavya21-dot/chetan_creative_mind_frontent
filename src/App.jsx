@@ -1,5 +1,4 @@
-import React, { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 import Hero from "./component/Hero";
 import Header from "./component/Header";
 import Blogs from "./component/Blogs";
@@ -13,7 +12,7 @@ export default function App() {
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <Header />
 
-      <main>
+      <main  className="mt-[-4rem]">
         <Hero />
         <Services />
         <Blogs />

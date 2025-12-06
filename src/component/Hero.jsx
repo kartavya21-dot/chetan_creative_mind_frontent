@@ -50,7 +50,7 @@ const Hero = () => {
             <WhatsAppButton size="lg" label="Talk on WhatsApp" />
             <a
               href="#services"
-              className="px-4 py-2 border border-slate-300 rounded-xl hover:bg-slate-50 transition"
+              className="px-4 py-2 border border-slate-300 rounded-xl hover:bg-slate-50 hover:scale-110 transition-all duration-500 ease-out"
             >
               Explore Services
             </a>
@@ -59,7 +59,7 @@ const Hero = () => {
             {["Fast", "Secure", "SEO-Ready", "Responsive"].map((k) => (
               <li
                 key={k}
-                className="bg-white rounded-xl shadow-sm border border-slate-200 px-3 py-2 text-center"
+                className="cursor-pointer bg-white rounded-xl shadow-sm border border-slate-200 px-3 py-2 text-center hover:scale-110 transition-all duration-500 ease-out"
               >
                 {k}
               </li>
