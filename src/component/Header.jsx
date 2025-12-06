@@ -15,13 +15,25 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur border-b border-slate-200">
       <div className="container h-16 mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <div className="group flex items-center gap-3">
           <img src={assets.logo} alt="logo" className="w-10 h-10" />
-          <span className="text-lg font-semibold tracking-tight">
-            Chetan CreativeMind
-          </span>
+
+          <div
+            className="
+              h-10
+              w-0 group-hover:w-44
+              opacity-0 group-hover:opacity-100
+              transition-all duration-1000 ease-out
+              overflow-hidden
+              flex items-center
+            "
+          >
+            <div className="text-lg font-semibold tracking-tight whitespace-nowrap">
+              Chetan CreativeMind
+            </div>
+          </div>
         </div>
 
         <nav className="hidden md:flex items-center gap-1">
