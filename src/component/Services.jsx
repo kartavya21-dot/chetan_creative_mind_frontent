@@ -29,12 +29,17 @@ const ServicesComponent = () => {
     <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {CARDS.map((c, i) => (
         <motion.article
-          key={c.title}
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: i * 0.06 }}
-          className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-lg hover:-translate-y-0.5 transition"
+          whileHover={{
+            y: -6,
+            scale: 1.02,
+            boxShadow: "0px 15px 40px rgba(0,0,0,0.12)",
+            borderColor: "rgba(0,0,0,0.15)", // 👈 Instant, no delay
+          }}
+          transition={{ type: "spring", stiffness: 180, damping: 15 }}
+          className="bg-white rounded-2xl border border-slate-200 p-6"
         >
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-semibold">{c.title}</h3>
@@ -61,13 +66,12 @@ const ServicesComponent = () => {
 };
 
 const Services = () => {
-
   return (
     <section id="services" className="py-20 bg-slate-50">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ amount: 0.3 }}
         transition={{ duration: 0.5 }}
         className="container mx-auto px-4"
       >
