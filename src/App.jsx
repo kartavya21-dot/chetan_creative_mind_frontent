@@ -5,19 +5,19 @@ import Blogs from "./component/Blogs";
 import Contact from "./component/Contact";
 import Footer from "./component/Footer";
 import Services from "./component/Services";
+import { Route, Router } from "react-router-dom";
 
 // Main App Component
 export default function App() {
   return (
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <Header />
-
-      <main  className="mt-[-4rem]">
-        <Hero />
-        <Services />
-        <Blogs />
-        <Contact />
-      </main>
+            <main className="mt-[-4rem]">
+              <Hero />
+              <Services />
+              <Blogs />
+              <Contact />
+            </main>
 
       <Footer />
     </div>
