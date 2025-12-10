@@ -5,20 +5,20 @@ import Blogs from "./component/Blogs";
 import Contact from "./component/Contact";
 import Footer from "./component/Footer";
 import Services from "./component/Services";
-import { Route, Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import BlogExtendedPage from "./pages/BlogExtendedPage";
+import Portfolio from "./component/Portfolio";
+import Home from "./pages/Home";
 
 // Main App Component
 export default function App() {
   return (
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <Header />
-            <main className="mt-[-4rem]">
-              <Hero />
-              <Services />
-              <Blogs />
-              <Contact />
-            </main>
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog/:blogId" element={<BlogExtendedPage />} />
+      </Routes>
       <Footer />
     </div>
   );

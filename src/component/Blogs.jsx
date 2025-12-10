@@ -1,7 +1,8 @@
 import React from "react";
-import WhatsAppButton from "./WhatsappButton";
 import { motion } from "framer-motion";
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import WhatsAppButton from "./WhatsAppButton";
 
 const BlogsComponent = () => {
   const BLOGS = [
@@ -166,7 +167,7 @@ const BlogsComponent = () => {
       ],
     },
   ];
-
+  const navigate = useNavigate();
   const [count, setCount] = useState(6);
   const items = useMemo(() => BLOGS.slice(0, count), [count]);
 
@@ -174,9 +175,20 @@ const BlogsComponent = () => {
     <div className="mt-8">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((b) => (
-          <article
+          <motion.article
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{
+            y: -6,
+            scale: 1.02,
+            boxShadow: "0px 15px 40px rgba(0,0,0,0.12)",
+            borderColor: "rgba(0,0,0,0.15)", // 👈 Instant, no delay
+          }}
+          transition={{ type: "spring", stiffness: 180, damping: 15 }}
             key={b.id}
-            className={`bg-white h-80 rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col`}
+            onClick={()=>navigate(`/blog/${b.id}`)}
+            className={`cursor-pointer bg-white h-80 rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col`}
           >
             <h3 className="text-xl font-semibold">{b.title}</h3>
             {b.paragraphs.map((p, idx) => (
@@ -191,7 +203,7 @@ const BlogsComponent = () => {
               <span className="text-xs text-slate-500">~4 min read</span>
               <WhatsAppButton variant="ghost" label="Discuss on WhatsApp" />
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
       {count < BLOGS.length && (

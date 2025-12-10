@@ -1,11 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import WhatsAppButton from "./WhatsappButton";
 import { assets } from "../assets/assets";
+import WhatsAppButton from "./WhatsAppButton";
 
 const Header = () => {
   const NAV = [
     { id: "services", label: "Services" },
+    { id: "portfolio", label: "Portfolio"},
     { id: "blogs", label: "Blogs" },
     { id: "contact", label: "Contact" },
   ];
@@ -18,7 +19,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur border-b border-slate-200">
       <div className="container h-16 mx-auto flex items-center justify-between">
-        <div className="group flex items-center gap-3">
+        <div className="group cursor-pointer flex items-center gap-3" onClick={() => scrollTo("home")}>
           <img src={assets.logo} alt="logo" className="w-10 h-10" />
 
           <div

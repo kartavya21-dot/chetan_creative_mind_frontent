@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import WhatsAppButton from "./WhatsappButton";
+import WhatsAppButton from "./WhatsAppButton";
 
 const Hero = () => {
   return (
@@ -18,7 +18,7 @@ const Hero = () => {
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.1,
+                  staggerChildren: 0.3,
                 },
               },
             }}

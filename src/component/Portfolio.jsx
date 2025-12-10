@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import WhatsAppButton from "./WhatsAppButton";
+import { assets } from "../assets/assets";
 
-const ServicesComponent = () => {
+const PortfolioComponent = () => {
   const CARDS = [
     {
       title: "AI Video Editing",
@@ -36,38 +37,31 @@ const ServicesComponent = () => {
             y: -6,
             scale: 1.02,
             boxShadow: "0px 15px 40px rgba(0,0,0,0.12)",
-            borderColor: "rgba(0,0,0,0.15)", // 👈 Instant, no delay
+            borderColor: "rgba(0,0,0,0.15)",
           }}
           transition={{ type: "spring", stiffness: 180, damping: 15 }}
-          className="bg-white rounded-2xl border border-slate-200 p-6"
+          className="cursor-pointer bg-white group aspect-square rounded-2xl border border-slate-200 p-6 flex items-center justify-center relative overflow-hidden"
         >
-          <div className="flex items-center justify-between">
-            <h3 className="text-xl font-semibold">{c.title}</h3>
-            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full">
-              2025
-            </span>
-          </div>
-          <p className="mt-3 text-sm text-slate-600">{c.desc}</p>
-          <ul className="mt-4 space-y-2 text-sm">
-            {c.points.map((p) => (
-              <li key={p} className="flex items-center gap-2">
-                <span>•</span>
-                {p}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-6">
-            <WhatsAppButton label="Get Pricing" />
-          </div>
+          {/* IMAGE */}
+          <img
+            src={assets.logo}
+            alt=""
+            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700 group-hover:opacity-0"
+          />
+
+          {/* TEXT */}
+          <p className="absolute inset-0 flex items-center justify-center text-xl font-semibold opacity-0 transition-opacity duration-700 group-hover:opacity-100">
+            Project Description
+          </p>
         </motion.article>
       ))}
     </div>
   );
 };
 
-const Services = () => {
+const Portfolio = () => {
   return (
-    <section id="services" className="py-20 bg-slate-50">
+    <section id="portfolio" className="py-20 bg-slate-50">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -76,15 +70,15 @@ const Services = () => {
         className="container mx-auto px-4"
       >
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center">
-          Services
+          Projects
         </h2>
         <p className="mt-3 text-center text-slate-600 max-w-2xl mx-auto">
-          Pick a package or mix what you need. Hover for details.
+          Projects built by me. Hover for details.
         </p>
-        <ServicesComponent />
+        <PortfolioComponent />
       </motion.div>
     </section>
   );
 };
 
-export default Services;
+export default Portfolio;
