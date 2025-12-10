@@ -9,12 +9,14 @@ import { Route, Routes } from "react-router-dom";
 import BlogExtendedPage from "./pages/BlogExtendedPage";
 import Portfolio from "./component/Portfolio";
 import Home from "./pages/Home";
+import StickyBlog from "./component/StickyBlog";
 
 // Main App Component
 export default function App() {
   return (
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <Header />
+      <StickyBlog/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog/:blogId" element={<BlogExtendedPage />} />
