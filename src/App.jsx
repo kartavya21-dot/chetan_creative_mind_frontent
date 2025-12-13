@@ -16,7 +16,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <Header />
-      <StickyBlog/>
+      {/* <StickyBlog/> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog/:blogId" element={<BlogExtendedPage />} />

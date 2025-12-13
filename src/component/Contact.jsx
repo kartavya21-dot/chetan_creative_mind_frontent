@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import WhatsAppButton from "./WhatsappButton";
+import WhatsAppButton from "./WhatsAppButton";
 
 const ContactComponent = () => {
   return (
@@ -12,7 +12,7 @@ const ContactComponent = () => {
           <WhatsAppButton size="lg" label="Open WhatsApp" />
         </div>
         <ul className="mt-6 space-y-3 text-sm">
-          <li>📧 hello@yourbrand.com</li>
+          <li>📧 chetancreativemindd@gmail.com</li>
           <li>📍 Indore, India</li>
           <li>🔗 Instagram & FrameBrush links in footer</li>
         </ul>
