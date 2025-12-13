@@ -1,5 +1,5 @@
 import React from "react";
-import WhatsAppButton from "./WhatsappButton";
+import WhatsAppButton from "./WhatsAppButton";
 
 const Footer = () => {
   return (
