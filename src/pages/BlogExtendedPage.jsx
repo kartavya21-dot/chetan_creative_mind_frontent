@@ -33,7 +33,7 @@ const BlogExtendedPage = () => {
       <div className="max-w-3xl mx-auto">
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 text-sm font-medium text-slate-500 hover:text-purple-600 transition-colors flex items-center gap-2"
+          className="cursor-pointer mb-6 text-sm font-medium text-slate-500 hover:text-purple-600 transition-colors flex items-center gap-2"
         >
           ← Back
         </button>
