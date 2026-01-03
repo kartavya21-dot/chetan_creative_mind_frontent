@@ -13,6 +13,13 @@ const Header = () => {
     { id: "contact", label: "Contact" },
   ];
 
+  const PHONE = "919753450585";
+  const HREF = `https://wa.me/${PHONE}`;
+
+  const handleClick = () => {
+    window.location.href = HREF;
+  };
+
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -54,7 +61,7 @@ const Header = () => {
             </button>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
+        <div onClick={handleClick} className="flex items-center cursor-pointer gap-2">
           <FaWhatsapp color="green" size="2em" />
         </div>
       </div>

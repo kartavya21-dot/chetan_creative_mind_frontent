@@ -8,6 +8,10 @@ const WhatsAppButton = ({ label = "WhatsApp", size = "md", variant = "solid" }) 
   const PHONE = "919753450585";
   const HREF = `https://wa.me/${PHONE}`;
 
+  const handleClick = () => {
+    window.location.href = HREF;
+  };
+  
   const sizes = {
     sm: "px-3 py-2 text-sm rounded-xl",
     md: "px-4 py-2 rounded-xl",
@@ -20,9 +24,6 @@ const WhatsAppButton = ({ label = "WhatsApp", size = "md", variant = "solid" }) 
     link: "underline underline-offset-4 text-green-500 hover:opacity-80"
   }[variant];
 
-  const handleClick = () => {
-    window.location.href = HREF;
-  };
 
   return (
     <button onClick={handleClick} aria-label={label} className={`cursor-pointer inline-flex items-center gap-2 ${sizes} ${styles} transition-all`}>
