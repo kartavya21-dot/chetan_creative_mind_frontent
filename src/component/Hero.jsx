@@ -100,32 +100,40 @@ const Hero = () => {
           </ul>
         </div>
 
-        {/* Enhanced Image Slider */}
+        {/* Enhanced Image Slider - Infinite Loop */}
         <div className="relative w-full group">
           <div className="relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 aspect-[4/3] w-full bg-gradient-to-br from-purple-500/15 via-fuchsia-500/10 to-blue-500/10 dark:from-purple-500/20 dark:via-fuchsia-500/15 dark:to-blue-500/15">
-            {images.map((img, idx) => (
-              <motion.div
-                key={idx}
-                initial={false}
-                animate={{
-                  x: `${(idx - currentIndex) * 100}%`,
-                  opacity: idx === currentIndex ? 1 : 0.3,
-                  scale: idx === currentIndex ? 1 : 0.95,
-                }}
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.5 },
-                  scale: { duration: 0.5 },
-                }}
-                className="absolute inset-0 flex items-center justify-center p-2"
-              >
-                <img
-                  src={img}
-                  className="w-full h-full object-cover rounded-xl"
-                  alt={`Slide ${idx + 1}`}
-                />
-              </motion.div>
-            ))}
+            {images.map((img, idx) => {
+              let position = idx - currentIndex;
+              
+              // Create infinite loop effect
+              if (position < -1) position += images.length;
+              if (position > images.length - 2) position -= images.length;
+              
+              return (
+                <motion.div
+                  key={idx}
+                  initial={false}
+                  animate={{
+                    x: `${position * 100}%`,
+                    opacity: idx === currentIndex ? 1 : 0.3,
+                    scale: idx === currentIndex ? 1 : 0.95,
+                  }}
+                  transition={{
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.5 },
+                    scale: { duration: 0.5 },
+                  }}
+                  className="absolute inset-0 flex items-center justify-center p-2"
+                >
+                  <img
+                    src={img}
+                    className="w-full h-full object-cover rounded-xl"
+                    alt={`Slide ${idx + 1}`}
+                  />
+                </motion.div>
+              );
+            })}
             
             {/* Previous Button */}
             <button
