@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { assets } from "../assets/assets";
 import WhatsAppButton from "./WhatsAppButton";
+import ThemeToggle from "./ThemeToggle";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
   const NAV = [
@@ -53,7 +55,7 @@ const Header = () => {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <WhatsAppButton size="sm" />
+          <FaWhatsapp color="green" size="2em" />
         </div>
       </div>
     </header>
