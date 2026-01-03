@@ -176,31 +176,30 @@ const BlogsComponent = () => {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((b) => (
           <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          whileHover={{
-            y: -6,
-            scale: 1.02,
-            boxShadow: "0px 15px 40px rgba(0,0,0,0.12)",
-            borderColor: "rgba(0,0,0,0.15)", // 👈 Instant, no delay
-          }}
-          transition={{ type: "spring", stiffness: 180, damping: 15 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{
+              y: -6,
+              scale: 1.02,
+              boxShadow: "0px 15px 40px rgba(0,0,0,0.12)",
+            }}
+            transition={{ type: "spring", stiffness: 180, damping: 15 }}
             key={b.id}
-            onClick={()=>navigate(`/blog/${b.id}`)}
-            className={`cursor-pointer bg-white h-80 rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col`}
+            onClick={() => navigate(`/blog/${b.id}`)}
+            className="cursor-pointer bg-white dark:bg-slate-800 h-80 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 flex flex-col hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
           >
-            <h3 className="text-xl font-semibold">{b.title}</h3>
+            <h3 className="text-xl font-semibold dark:text-white">{b.title}</h3>
             {b.paragraphs.map((p, idx) => (
               <p
                 key={idx}
-                className="mt-3 text-sm text-slate-700 leading-7 line-clamp-3"
+                className="mt-3 text-sm text-slate-700 dark:text-slate-300 leading-7 line-clamp-3"
               >
                 {p}
               </p>
             ))}
             <div className="mt-5 flex items-center justify-between">
-              <span className="text-xs text-slate-500">~4 min read</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400">~4 min read</span>
               <WhatsAppButton variant="ghost" label="Discuss on WhatsApp" />
             </div>
           </motion.article>
@@ -210,7 +209,7 @@ const BlogsComponent = () => {
         <div className="mt-8 flex justify-center">
           <button
             onClick={() => setCount((c) => c + 6)}
-            className="px-4 py-2 border border-slate-300 rounded-xl hover:bg-slate-50 transition"
+            className="px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors dark:text-white"
           >
             Load more
           </button>
@@ -222,10 +221,10 @@ const BlogsComponent = () => {
 
 const Blogs = () => {
   return (
-    <section id="blogs" className="py-20">
+    <section id="blogs" className="py-20 dark:bg-slate-900 transition-colors duration-300">
       <motion.div className="container mx-auto px-4">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight dark:text-white">
             Insights & Case Studies
           </h2>
           <WhatsAppButton variant="ghost" label="WhatsApp us" />

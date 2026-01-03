@@ -45,31 +45,31 @@ const PortfolioComponent = () => {
               y: -6,
               scale: 1.02,
               boxShadow: "0px 15px 40px rgba(0,0,0,0.12)",
-              borderColor: "rgba(0,0,0,0.15)",
             }}
             transition={{ type: "spring", stiffness: 180, damping: 15 }}
-            className="cursor-pointer bg-white group aspect-square rounded-2xl border border-slate-200 p-6 flex items-center justify-center relative overflow-hidden"
+            className="cursor-pointer bg-white dark:bg-slate-800 group aspect-square rounded-2xl border border-slate-200 dark:border-slate-700 p-6 flex items-center justify-center relative overflow-hidden hover:border-slate-300 dark:hover:border-slate-600 transition-colors duration-300"
           >
             {/* IMAGE */}
             <img
               src={assets.logo}
               alt=""
               className={`
-          absolute inset-0 w-full h-full object-contain
-          transition-opacity duration-700
-          group-hover:opacity-0
-          ${isOpen ? "opacity-0" : "opacity-100"}
-        `}
+                absolute inset-0 w-full h-full object-contain
+                transition-opacity duration-700
+                group-hover:opacity-0
+                ${isOpen ? "opacity-0" : "opacity-100"}
+              `}
             />
 
             {/* TEXT */}
             <p
               className={`
-          absolute inset-0 flex items-center justify-center text-xl font-semibold
-          transition-opacity duration-700
-          opacity-0 group-hover:opacity-100
-          ${isOpen ? "opacity-100" : ""}
-        `}
+                absolute inset-0 flex items-center justify-center text-xl font-semibold
+                transition-opacity duration-700
+                opacity-0 group-hover:opacity-100
+                ${isOpen ? "opacity-100" : ""}
+                dark:text-white
+              `}
             >
               Project Description
             </p>
@@ -82,7 +82,7 @@ const PortfolioComponent = () => {
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-20 bg-slate-50">
+    <section id="portfolio" className="py-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -90,10 +90,10 @@ const Portfolio = () => {
         transition={{ duration: 0.5 }}
         className="container mx-auto px-4"
       >
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center dark:text-white">
           Projects
         </h2>
-        <p className="mt-3 text-center text-slate-600 max-w-2xl mx-auto">
+        <p className="mt-3 text-center text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
           Projects built by me. Hover for details.
         </p>
         <PortfolioComponent />
